@@ -12,41 +12,35 @@
 
   app.get('/image/add', (req, res) => {
 
-       var data = fs.readFileSync('imageData.json','utf-8');
+      var data = fs.readFileSync('imageData.json','utf-8');
 
-       var json =JSON.parse(data);
+      var json =JSON.parse(data);
 
       var imageInfo = {
-              name: req.query.name,
-              imageLink: req.query.imageLink,
-              description: req.query.description
-   }
+          name: req.query.name,
+          imageLink: req.query.imageLink,
+          description: req.query.description
+      }
       json.push(imageInfo);
       fs.writeFileSync('imageData.json',JSON.stringify(json));
       res.send('Success!');
+    });
 
+    app.get('/image/get', (req,res) => {
+      var data = fs.readFileSync('imageData.json','utf-8');
+      var post='';
+      var json =JSON.parse(data);
 
-
-  });
-
-  app.get('/image/get', (req,res) => {
-    var data = fs.readFileSync('imageData.json','utf-8');
-    var post='';
-    var json =JSON.parse(data);
-    //(let i=0;i<json.length;++i){
     let i=0;
     while (i<json.length) {
-
       post += json[i].name + "<br>" + "<img src = " + json[i].imageLink + ">" + "<br>" + json[i].description + "<br> <br> <br> <br>";
-     i++;
+      i++;
     }
       res.send(post);
-
-
-  });
+    });
 
   //mo 1 port de chay local
-  app.listen(6969, (req, res) => {
+    app.listen(6969, (req, res) => {
       console.log('App is running on 6969...');
   });
   var i=0;
