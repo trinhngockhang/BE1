@@ -34,8 +34,12 @@
     var post='';
     var json =JSON.parse(data);
     //(let i=0;i<json.length;++i){
-    var i=0;
+    let i=0;
+    while (i<json.length) {
+
       post += json[i].name + "<br>" + "<img src = " + json[i].imageLink + ">" + "<br>" + json[i].description + "<br> <br> <br> <br>";
+     i++;
+    }
       res.send(post);
 
 
