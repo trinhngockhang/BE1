@@ -1,46 +1,63 @@
+  console.log('Hello nodemon');
+
   const fs = require('fs');
+  //dung cai thu vien express
   const express = require('express');
 
+  const imagesController =require(__dirname + '/modules/images/imagesController');
+  const bodyParser=require('body-parser');
   var app = express();
-  console.log("chay được rồi nhé ahihi");
+
   //set public folder public
+  //app.use(urlencoded)
   app.use(express.static(__dirname + '/public'));
+  app.use(bodyParser.json({extended:true}));
+  app.use(bodyParser.urlencoded({extended:true}));
 
   app.get('/', (req, res) => {
-      res.send('./public/index.html');
-  });
+    res.send('./public/index.html');
+  })
 
-  app.get('/image/add', (req, res) => {
+  app.post('/image', (req, res) => {
+    //doc du lieu tu file  imageData
+   var imageInfoCollection= imagesController.fetchImageCollection();
 
-      var data = fs.readFileSync('imageData.json','utf-8');
-
-      var json =JSON.parse(data);
-
-      var imageInfo = {
-          name: req.query.name,
-          imageLink: req.query.imageLink,
-          description: req.query.description
-      }
-      json.push(imageInfo);
-      fs.writeFileSync('imageData.json',JSON.stringify(json));
-      res.send('Success!');
-    });
-
-    app.get('/image/get', (req,res) => {
-      var data = fs.readFileSync('imageData.json','utf-8');
-      var post='';
-      var json =JSON.parse(data);
-
-    let i=0;
-    while (i<json.length) {
-      post += json[i].name + "<br>" + "<img src = " + json[i].imageLink + ">" + "<br>" + json[i].description + "<br> <br> <br> <br>";
-      i++;
+    //khai bao object
+    var imageInfo = {
+      name : req.body.name,
+      imageLink : req.body.imageLink,
+      description : req.body.description
     }
-      res.send(post);
-    });
 
-  //mo 1 port de chay local
-    app.listen(6969, (req, res) => {
-      console.log('App is running on 6969...');
-  });
-  var i=0;
+    console.log('post data',req.body);
+    //push data moi vao collection
+    imageInfoCollection.push(imageInfo);
+
+    //luu lai vao file
+    imagesController.saveImageCollection(imageInfoCollection);
+    //bao thanh cong
+    res.send('Success');
+  })
+
+  app.get('/image', (req,res) => {
+    var imageInfoCollection= imagesController.fetchImageCollection();
+
+    var htmlString='';
+
+    imageInfoCollection.forEach((data) =>{
+      htmlString += `<div>${data.name}</div><img src ="${data.imageLink}"><div>${data.description}</div>`;
+    })
+    res.send(htmlString);
+  })
+
+  app.put('/image',(req,res) =>{
+
+  })
+
+  app.delete('/image',(req,res)=>{
+
+  })
+  //mo 1 cai port de chay local
+  app.listen(6969, (req, res) => {
+    console.log('app listen on 6969');
+  })
