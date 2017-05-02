@@ -40,16 +40,18 @@
   }
 
   var getOneImage = (id,callback)=>{
-    imagesModel
-     .findOne({'id': id})
-     .exec((err, doc) => {
-       if (err) console.log(err);
-       else callback(err, doc);
+    imagesModel.find({"id" : id }, (err, doc) => {
+      if (err) {
+         console.log(err);
+         callback(err);
+      }else{
+         callback(null, doc);
+      }
    });
  };
 
-  var deleteImageCollectionbyId= (id) => {
-    imagesModel.remove({_id:id}, function(err){
+  var deleteImageCollectionbyId = (id) => {
+    imagesModel.remove({id:id}, function(err){
     if(err) throw err;
   });
   }

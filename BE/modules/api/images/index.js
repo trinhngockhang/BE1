@@ -29,25 +29,32 @@
   };
   });
 
-    Router.get('/', (req, res) => {
-    var id = req.query.id;
-    if(id){
-      imagesController.getOneImage(id, (err, docs) => {
-      if (err) {
-      res.status(500).json({message: 'Error'});
-      }
-      res.json(docs);
+  Router.get('/', (req, res) => {
+    try {
+      var id = req.query.id;
+      if(id){
+        imagesController.getOneImage(id, (err, docs) => {
+        if (err) {
+          res.send("da xay ra loi");
+          console.log("loi roi");
+        }else{
+          res.send(docs);
+          console.log("ok");
+        }
       });
-    }else{
-      name = req.query.name;
-      imagesController.getAllImages((err, docs) => {
-      if (err) {
-        res.status(500).json({message: 'Error'});
+      }else{
+        imagesController.getAllImages( (err, docs) => {
+        if (err) {
+          res.send("loi roi");
+        }else{
+          res.json(docs);
+        }
+          });
       }
-        res.json(docs);
-      });
+    } catch (e) {
+      console.log(e);
     }
-    });
+  });
 
   Router.put('/', (req, res) => {
     try{
@@ -58,7 +65,6 @@
         description : req.body.description
       }
       imagesController.updateImageCollectionById(req.body.id, newData);
-
       res.send("updated");
     }
     else {
@@ -70,16 +76,15 @@
   })
 
   Router.delete('/', (req, res) => {
-    try{  if(req.body._id){
-      imagesController.deleteImageCollectionbyId(req.body._id);
-      res.send("deleted");
-
-
-    }else {
-      res.send("can't delete");
+    try{
+      if(req.body._id){
+       imagesController.deleteImageCollectionbyId(req.body._id);
+       res.send("deleted");
+      }else {
+       res.send("can't delete");
     }
   }catch(e){
-    res.send("delete fail");
+      res.send("delete fail");
   }
     })
 
