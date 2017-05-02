@@ -1,0 +1,30 @@
+{"frames": {
+
+"Bullet.png":
+{
+	"frame": {"x":291,"y":1,"w":46,"h":60},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":46,"h":60},
+	"sourceSize": {"w":46,"h":60},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"Enemy.png":
+{
+	"frame": {"x":1,"y":1,"w":288,"h":250},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":288,"h":250},
+	"sourceSize": {"w":288,"h":250},
+	"pivot": {"x":0.5,"y":0.5}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "Enemy vs Bullet.png",
+	"format": "RGBA8888",
+	"size": {"w":338,"h":252},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:d4ac528cec0a6d151ef31cab58b79f4b:16fc5fdc3d14911f1feb1d6d31050f3a:b9331c7e752701bf9f3adc3bf333a078$"
+}
+}

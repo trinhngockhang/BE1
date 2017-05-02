@@ -1,0 +1,84 @@
+{"frames": {
+
+"line.png":
+{
+	"frame": {"x":1467,"y":1,"w":665,"h":2000},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":665,"h":2000},
+	"sourceSize": {"w":665,"h":2000},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"Line1.png":
+{
+	"frame": {"x":1,"y":1,"w":127,"h":2002},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":127,"h":2002},
+	"sourceSize": {"w":127,"h":2002},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"Line2.png":
+{
+	"frame": {"x":130,"y":1,"w":668,"h":2000},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":668,"h":2000},
+	"sourceSize": {"w":668,"h":2000},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"Line3.png":
+{
+	"frame": {"x":800,"y":1,"w":665,"h":2000},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":665,"h":2000},
+	"sourceSize": {"w":665,"h":2000},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"Line4.png":
+{
+	"frame": {"x":2134,"y":1,"w":664,"h":2000},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":664,"h":2000},
+	"sourceSize": {"w":664,"h":2000},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"Line5.png":
+{
+	"frame": {"x":3459,"y":1,"w":396,"h":2000},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":396,"h":2000},
+	"sourceSize": {"w":396,"h":2000},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"Line6.png":
+{
+	"frame": {"x":3857,"y":1,"w":396,"h":2000},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":396,"h":2000},
+	"sourceSize": {"w":396,"h":2000},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"line7.png":
+{
+	"frame": {"x":2800,"y":1,"w":657,"h":2000},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":657,"h":2000},
+	"sourceSize": {"w":657,"h":2000},
+	"pivot": {"x":0.5,"y":0.5}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "Line.png",
+	"format": "RGBA8888",
+	"size": {"w":4254,"h":2004},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:ffa47e37f67e099692b3799016fdf0f2:adc550b2eb6ea8660007594b830ee166:5171d4980b679e3b75c03c8f830fc695$"
+}
+}
