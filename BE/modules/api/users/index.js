@@ -19,7 +19,7 @@
         try{
           console.log('post data ',req.body);
           //luu lai vao database
-        usersController.createUser(userInfo,(err,doc) => {
+          usersController.createUser(userInfo,(err,doc) => {
           if(err){
             console.log(err);
             res.send('co loi xay ra');
@@ -51,16 +51,16 @@
           })
         }else if(userId){
           usersController.getUserByUserId(userId, (err,doc) => {
-             if(err){
+            if(err){
                console.log(err);
                res.send("da xay ra loi");
-             }else{
+            }else{
                console.log("ok");
                res.send(doc);
-             }
+            }
           })
         }else {
-           usersController.getAllUser((err,doc) => {
+          usersController.getAllUser((err,doc) => {
              if(err){
                console.log(err);
                res.send("loi roi ");
@@ -68,7 +68,7 @@
                console.log("done");
                res.send(doc);
              }
-           })
+          })
         }
       } catch (e) {
           console.log(e);
@@ -86,7 +86,7 @@
         avatar: req.body.avatar,
         inGame: req.body.inGame
       }
-
+        
       usersController.updateUserById(id,
       newData,(err,doc)=>{
         if(err){

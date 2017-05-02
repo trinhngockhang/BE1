@@ -1,5 +1,8 @@
   const fs = require('fs');
+
   const usersModel = require('./usersModel');
+
+  const bcrypt = require('bcryptjs');
 
   var createUser = (data,callback) => {
     usersModel.findOne({})
@@ -12,13 +15,14 @@
       }else{
         var id = doc && doc.userId ? doc.userId+= 1 : 1;
         data.userId=id;
+        data.password = generateHash(data.password);
         usersModel.create(data, (err, doc) => {
           if (err) {
             console.log(err);
             callback(err);
-            } else {
-              console.log(doc);
-              callback(null, doc);
+          } else {
+            console.log(doc);
+            callback(null, doc);
           }
         })
       }
@@ -80,14 +84,20 @@
         callback(null, doc);
       }
     });
-  } catch (e) {
+  }catch (e) {
     console.log(e);
   }
-};
+  };
+
+  var generateHash = (password) => {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+  }
+
   module.exports = {
     createUser:createUser,
     getUserByName,
     getUserByUserId,
     getAllUser,
-    updateUserById
+    updateUserById,
+    generateHash
   }
