@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+    <script type="text/javascript" src="../libs/jquery.min.js"></script>
+    <script type="text/javascript" src="../libs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../libs/handlebars.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+  </head>
+  <body>
+    <div id="image">
+    </div>
+    <script id="item-modal-template" type="text/x-handlebars-template">
+      <div>
+        <button type="button" class="plus_button plus_button_modal pull-left" data-item-id="{{id}}">
+          <span class="glyphicon glyphicon-plus"></span>
+        </button>
+
+        <div class="pull-right text-center item_modal_statistic">
+          <div>
+            <span class="glyphicon glyphicon-eye-open"></span>
+            <p>{{view}}</p>
+          </div>
+          <div>
+            <span class="glyphicon glyphicon-time"></span>
+            <p>{{date}}</p>
+          </div>
+          <div>
+            <span class="glyphicon glyphicon-plus"></span>
+            <p>{{plus}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="image_container">
+        <img src="{{imageUrl}}">
+      </div>
+      <div>
+        <div class="author_info">
+          <img src="{{posterAvatar}}" class="author_avatar author_avatar_big">
+          <h1>{{posterName}}</h1>
+          <p class="text-muted">{{posterTitle}}</p>
+        </div>
+        <p>{{content}}</p>
+      </div>
+      <hr>
+      <div>
+        <img src="{{posterAvatar}}" class="author_avatar">
+        <p><strong>{{posterName}}</strong></p>
+        <p class="text-muted">{{posterTitle}}</p>
+      </div>
+        {{#each comments}}
+          <div>
+            <img src={{commentAvatar}} class="author_avatar">
+            <span>{{commentName}}</span>
+            <p>
+              {{content}}
+            </p>
+          </div>
+        {{/each}}
+      <div>
+      </div>
+    </script>
+    <script type="text/javascript">
+      
+    </script>
+  </body>
+</html>

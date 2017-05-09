@@ -1,0 +1,22 @@
+.header {
+  margin-top : 30px;
+}
+
+.row {
+  margin-top : 20px;
+}
+
+.item_container {
+    border : solid 1px;
+    padding: 20px;
+    margin-right: 20px;
+}
+
+.image_container {
+  padding-bottom: 20px;
+}
+
+.author_avatar {
+  max-width: 40px;
+  max-height: 40px;
+}

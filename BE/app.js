@@ -8,21 +8,21 @@ const mongoose = require('mongoose');
 
 const config = require('./config.json');
 const imagesRouter = require(__dirname + '/modules/api/images/');
-const userRouter = require(__dirname + '/modules/api/users/');
-
+const usersRouter = require(__dirname + '/modules/api/users/');
+const clientRouter = require('./client');
+const session = require('express-session');
 var app = express();
 
 //set public folder public
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json({ extended : true}));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(session({ secret : 'lol' , resave : false, saveUninitialized: true,
+cookie:{} }))
 
-app.get('/', (req, res) => {
-  res.send('./public/index.html');
-})
-
+app.use('/', clientRouter);
 app.use('/api/image', imagesRouter);
-app.use('/api/user', userRouter);
+app.use('/api/users', usersRouter);
 
 mongoose.connect(config.connectionString, (err) => {
   if (err) {

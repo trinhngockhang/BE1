@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+    <title>Techkids hot girl</title>
+    <link rel="stylesheet" type="text/css" href="../libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+    <script type="text/javascript" src="../libs/jquery.min.js"></script>
+    <script type="text/javascript" src="../libs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../libs/handlebars.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+  </head>
+  <body>
+    <header class="container">
+      <h2 class="text-primary">
+        Add User
+      </h2>
+    </header>
+    <section class="container">
+      <form action="../api/users/signup" method="post" class="row">
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="text-primary">
+              Username
+            </label>
+          </div>
+          <div class="col-sm-6">
+            <input class="form-control" type="text" name="username">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="text-primary">
+              Password
+            </label>
+          </div>
+          <div class="col-sm-6">
+            <input class="form-control" type="password" name="password">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="text-primary">
+              Description
+            </label>
+          </div>
+          <div class="col-sm-6">
+            <input class="form-control" type="text" name="Description">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="text-primary">
+              Email
+            </label>
+          </div>
+          <div class="col-sm-6">
+            <input class="form-control" type="text" name="email">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="text-primary">
+              Avatar link
+            </label>
+          </div>
+          <div class="col-sm-6">
+            <input class="form-control" type="text" name="avatar">
+          </div>
+        </div>
+        <div class="row">
+          <input type="submit" class="btn btn-primary">
+        </div>
+      </form>
+    </section>
+  </body>
+</html>

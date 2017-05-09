@@ -1,0 +1,111 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Techkids hot girl</title>
+    <link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <script type="text/javascript" src="libs/jquery.min.js"></script>
+    <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="libs/handlebars.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="container">
+        <div class="row">
+          <div class="col-sm-1 text-center">
+            <a class="btn btn-button btn-primary" href="/image/add">Image</a></label>
+          </div>
+          <div class="col-sm-1 text-center">
+            <a class="btn btn-button btn-primary" href="/user/add">User</a>
+          </div>
+        </div>
+        <div class="row">
+          <div id="sign_in_form">
+            <div class="col-sm-3">
+              <label>Username</label>
+              <input type="text" class="form-control" name="username" id="username"></input>
+            </div>
+            <div class="col-sm-3">
+              <label>Password</label>
+              <input type="password" class="form-control" name="password" id="password"></input>
+            </div>
+            <div class="col-sm-3">
+              <button id="signin_button" class="btn btn-button danger" />SIGN IN</button>
+            </div>
+          </div>
+          <h2>
+            <div id="user_label">
+              <div id="username_label" class="text-primary col-sm-2">
+              </div>
+              <div class="col-sm-2">
+                <button id="signout_button" class="btn btn-button btn-warning" >SIGN OUT</button>
+              </div>
+            </div>
+          </h2>
+        </div>
+      </nav>
+    </header>
+    <section class="container">
+      <div class="row" id="item_list">
+      </div>
+    </section>
+
+    <script id="item-template" type="text/x-handlebars-template">
+      {{#each items}}
+      <div class="col-md-3 col-sm-6 item_container">
+        <div class="overlay">
+          <button type="button" class="plus_button" data-item-id="{{id}}" onclick="likeImage('{{id}}')">
+            <span class="glyphicon glyphicon-plus"></span>
+          </button>
+          <span class="text-muted">{{posterTitle}}</span>
+          <div class="img_statistics_container">
+            <div class="row text-center">
+              <div class="col-xs-4">
+                <span class="glyphicon glyphicon-eye-open"></span>
+                <p>{{view}}</p>
+              </div>
+              <div class="col-xs-4">
+                <span class="glyphicon glyphicon-time"></span>
+                <p>{{date}}</p>
+              </div>
+              <div class="col-xs-4">
+                <span class="glyphicon glyphicon-plus"></span>
+                <p>{{plus}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="image_container">
+            <img src="{{imageUrl}}" class="img-responsive">
+          </div>
+          <div class="info_container">
+            <div class="author_info">
+              <a href=""><img src="{{posterAvatar}}" class="author_avatar"></a>
+              <h3>{{posterName}}</h3>
+            </div>
+            <p>{{content}}</p>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        var itemTemplate = Handlebars.compile($("#item-template").html());
+        requestImage(itemTemplate);
+      });
+
+      $('body').on('click','#signin_button', function() {
+        signin();
+      })
+
+      $('body').on('click','#signout_button', function() {
+        signout();
+      })
+    </script>
+  </body>
+</html>

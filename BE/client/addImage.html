@@ -1,0 +1,78 @@
+<html>
+  <head>
+  <meta charset="utf-8">
+    <title>Techkids hot girl</title>
+    <link rel="stylesheet" type="text/css" href="../libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+    <script type="text/javascript" src="../libs/jquery.min.js"></script>
+    <script type="text/javascript" src="../libs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../libs/handlebars.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+  </head>
+  <body>
+    <header class="container">
+      <h2 class="text-primary">
+        Add Image
+      </h2>
+    </header>
+    <section class="container">
+      <div id="image_info">
+      </div>
+    </section>
+    <script id="image-edit-template" type="text/x-handlebars-template">
+      <form action="../api/image" method="post" class="row" id="imageInfo">
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="text-primary">
+              Image name
+            </label>
+          </div>
+          <div class="col-sm-6">
+            <input class="form-control" type="text" name="name" value={{posterTitle}}>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="text-primary">
+              Image link
+            </label>
+          </div>
+          <div class="col-sm-6">
+            <input class="form-control" type="text" name="imageLink" value="{{imageUrl}}">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="text-primary">
+              Description
+            </label>
+          </div>
+          <div class="col-sm-6">
+            <input class="form-control" type="text" name="description" value="{{content}}">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="text-primary">
+              UserId
+            </label>
+          </div>
+          <div class="col-sm-6">
+            <input class="form-control" type="text" name="userId" value={{userId}}>
+          </div>
+        </div>
+        <div class="row">
+          <input type="submit" class="btn btn-primary">
+        </div>
+      </form>
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        var test = $('#image-edit-template').html();
+        var imageEditTemplate = Handlebars.compile($("#image-edit-template").html());
+        getEditImage(imageEditTemplate);
+      })
+    </script>
+  </body>
+</html>
